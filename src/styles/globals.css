@@ -1,0 +1,262 @@
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBALS — Design system variables, resets, and base styles
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Google Fonts Reference ────────────────────────────────────────
+   Loaded in index.html. See that file for alternative font options.
+   Current: Outfit (display/body) + JetBrains Mono (code)
+   ────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Core Palette ── */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f1a;
+  --bg-card: #13131f;
+  --bg-card-hover: #181828;
+  --bg-glass: rgba(19, 19, 31, 0.7);
+
+  /* ── Text ── */
+  --text-primary: #f0f0f8;
+  --text-secondary: #8888aa;
+  --text-muted: #555570;
+
+  /* ── Accent ── */
+  --accent: #4f8ef7;
+  --accent-glow: rgba(79, 142, 247, 0.18);
+  --accent-dim: rgba(79, 142, 247, 0.1);
+  --accent-border: rgba(79, 142, 247, 0.3);
+
+  /* ── Semantic Colors ── */
+  --green: #34d399;
+  --green-dim: rgba(52, 211, 153, 0.1);
+  --amber: #f59e0b;
+  --amber-dim: rgba(245, 158, 11, 0.1);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167, 139, 250, 0.1);
+  --coral: #fb923c;
+  --coral-dim: rgba(251, 146, 60, 0.1);
+
+  /* ── Borders ── */
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* ── Typography ── */
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ── Spacing scale ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 100px;
+
+  /* ── Layout ── */
+  --max-width: 1100px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* ── Transitions ── */
+  --transition: 0.2s ease;
+  --transition-slow: 0.4s ease;
+}
+
+/* ─── Reset ────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Selection ─────────────────────────────────────────────────────── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ─── Layout Utilities ──────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ─── Section Base ──────────────────────────────────────────────────── */
+section {
+  padding: var(--space-3xl) 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 72px 0;
+  }
+}
+
+/* ─── Fade-In Animation ─────────────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Section Label + Title ─────────────────────────────────────────── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.section-header {
+  margin-bottom: 56px;
+}
+
+/* ─── Glass Card Base ───────────────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color var(--transition), transform var(--transition),
+    background var(--transition);
+}
+
+.glass-card:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+/* ─── Chip / Badge Base ─────────────────────────────────────────────── */
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  padding: 3px 9px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all var(--transition);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ─── Subtle grid/dot background ───────────────────────────────────── */
+.bg-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+}
+
+/*
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║  SUGGESTED LIBRARIES (uncomment to enable)                   ║
+  ║                                                               ║
+  ║  Animations:                                                  ║
+  ║  • Framer Motion  → npm install framer-motion                 ║
+  ║  • GSAP           → npm install gsap                          ║
+  ║  • Auto-animate   → npm install @formkit/auto-animate         ║
+  ║  • React Spring   → npm install @react-spring/web             ║
+  ║                                                               ║
+  ║  Icons:                                                       ║
+  ║  • Lucide React   → npm install lucide-react                  ║
+  ║    (Used in this project for inline SVG icons)                ║
+  ║  • React Icons    → npm install react-icons                   ║
+  ║    (FA, MD, BS, Feather — all in one package)                 ║
+  ║  • Phosphor Icons → npm install @phosphor-icons/react          ║
+  ║                                                               ║
+  ║  3D / Advanced:                                               ║
+  ║  • Three.js       → npm install three @types/three            ║
+  ║  • React Three Fiber → npm install @react-three/fiber         ║
+  ║  • Vanta.js       → npm install vanta (hero backgrounds)      ║
+  ║                                                               ║
+  ║  UI Utilities:                                                ║
+  ║  • clsx           → npm install clsx (conditional classNames) ║
+  ║  • tailwind-merge → npm install tailwind-merge                ║
+  ╚═══════════════════════════════════════════════════════════════╝
+*/
