@@ -10,10 +10,16 @@
 :root {
   /* ── Core Palette ── */
   --bg-primary: #0a0a0f;
-  --bg-secondary: #0f0f1a;
-  --bg-card: #13131f;
+  /* --bg-secondary: #0f0f1a;
+  --bg-secondary: #101011; */
+  --bg-secondary: rgba(8, 8, 9, 0.7);
+  --bg-card: #14131f;
   --bg-card-hover: #181828;
   --bg-glass: rgba(19, 19, 31, 0.7);
+  /* --bg-glass-projects: rgba(0, 0, 0, 0.7); */
+    --bg-glass-projects: #0c0c0e;
+  /* --bg-glass-projects: rgba(19, 19, 31, 0.7); */
+
 
   /* ── Text ── */
   --text-primary: #f0f0f8;
@@ -21,7 +27,7 @@
   --text-muted: #555570;
 
   /* ── Accent ── */
-  --accent: #4f8ef7;
+  --accent: #103f91;
   --accent-glow: rgba(79, 142, 247, 0.18);
   --accent-dim: rgba(79, 142, 247, 0.1);
   --accent-border: rgba(79, 142, 247, 0.3);
