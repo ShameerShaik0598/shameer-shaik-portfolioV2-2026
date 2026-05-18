@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
         <SectionHeader
           label="Get In Touch"
           title="Let's Connect"
-          subtitle="Open to full-time SDE, Full-Stack, and Data Analyst roles. H-1B sponsorship required."
+          subtitle="Open to full-time SDE, Full-Stack, and Data Analyst roles."
           centered
         />
 

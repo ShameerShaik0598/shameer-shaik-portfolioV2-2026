@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
       style={{
         ...cardStyle,
         borderColor: hovered ? "var(--accent-border)" : "var(--border)",
-        background: hovered ? "var(--bg-card-hover)" : "var(--bg-glass)",
+        background: hovered ? "var(--bg-card-hover)" : "var(--bg-glass-projects)",
         transform: hovered ? "translateY(-3px)" : "translateY(0)",
         opacity: 1,
         transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
@@ -192,6 +192,7 @@ const cardStyle: React.CSSProperties = {
   flexDirection: "column",
   gap: "16px",
   cursor: "default",
+  height: "100%",   // ← add this
 };
 
 const headerRowStyle: React.CSSProperties = {
@@ -276,6 +277,7 @@ const previewStyle: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
+  marginTop: "auto",   // ← add this — pushes preview + buttons to bottom
 };
 
 const previewLabelStyle: React.CSSProperties = {

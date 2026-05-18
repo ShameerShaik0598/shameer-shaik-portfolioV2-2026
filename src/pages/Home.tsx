@@ -6,6 +6,8 @@ import Projects from "../components/Projects";
 import Experience from "../components/Experience";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import About from "../components/About";
+import Education from "../components/Education";
 
 /**
  * Home page — single-page layout.
@@ -151,17 +153,23 @@ const Home: React.FC = () => {
         {/* Hero — full viewport height */}
         <Hero />
 
-        {/*
-          About / Skills — combined under id="skills" so the nav
-          "Skills" link scrolls here. The stats summary acts as "About".
-        */}
-        <Skills />
+        {/* About — Proffesional Summary */}
+        <About />
 
         {/* Projects — filter tabs + card grid */}
         <Projects />
 
         {/* Experience — timeline + education + certs */}
         <Experience />
+
+        {/*
+          About / Skills — combined under id="skills" so the nav
+          "Skills" link scrolls here. The stats summary acts as "About".
+        */}
+        <Skills />
+
+        {/* Education — education + certs */}
+        <Education />
 
         {/* Contact — email, socials, resume downloads */}
         <Contact />

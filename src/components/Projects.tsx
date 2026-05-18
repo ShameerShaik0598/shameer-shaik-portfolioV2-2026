@@ -87,10 +87,10 @@ const Projects: React.FC = () => {
         {/* ── Cards grid ── */}
         <div style={gridStyle}>
           {filtered.map((project, i) => (
-            <FadeIn key={project.id} delay={i * 90}>
-              <ProjectCard project={project} />
-            </FadeIn>
-          ))}
+  <FadeIn key={project.id} delay={i * 90} style={{ height: "100%" }}>
+    <ProjectCard project={project} />
+  </FadeIn>
+))}
         </div>
 
         {/* ── Empty state (shouldn't happen but safe fallback) ── */}
@@ -150,6 +150,7 @@ const gridStyle: React.CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(2, 1fr)",
   gap: "24px",
+  alignItems: "stretch",   // ← add this
 };
 
 const emptyStateStyle: React.CSSProperties = {

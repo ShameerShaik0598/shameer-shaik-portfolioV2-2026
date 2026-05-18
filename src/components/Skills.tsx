@@ -52,12 +52,12 @@ const SkillGroupCard: React.FC<{ group: SkillGroup; delay: number }> = ({
   const [hovered, setHovered] = React.useState(false);
 
   return (
-    <FadeIn delay={delay}>
+<FadeIn delay={delay} style={{ height: "100%" }}>
       <div
         style={{
           ...cardStyle,
           borderColor: hovered ? `${group.color}44` : "var(--border)",
-          background: hovered ? "var(--bg-card-hover)" : "var(--bg-glass)",
+          background: hovered ? "var(--bg-card-hover)" : "var(--bg-glass-projects)",
           transform: hovered ? "translateY(-3px)" : "translateY(0)",
         }}
         onMouseEnter={() => setHovered(true)}
@@ -88,32 +88,14 @@ const SkillGroupCard: React.FC<{ group: SkillGroup; delay: number }> = ({
   );
 };
 
-/* ─── Stats bar ─────────────────────────────────────────────────────────── */
-const StatsBar: React.FC = () => (
-  <FadeIn delay={200}>
-    <div style={statsBarStyle}>
-      {stats.map((s, i) => (
-        <React.Fragment key={s.label}>
-          <div style={statItemStyle}>
-            <span style={statNumberStyle}>{s.number}</span>
-            <span style={statLabelStyle}>{s.label}</span>
-          </div>
-          {i < stats.length - 1 && <div style={statDividerStyle} />}
-        </React.Fragment>
-      ))}
-    </div>
-  </FadeIn>
-);
 
 /* ─── Main Skills Section ───────────────────────────────────────────────── */
+// FIND the entire Skills return and REPLACE with:
 const Skills: React.FC = () => {
   return (
     <section id="skills" style={sectionBgStyle}>
       <div className="container">
         <SectionHeader label="Capabilities" title="Tech Stack" />
-
-        {/* Stats bar */}
-        <StatsBar />
 
         {/* Skill group cards grid */}
         <div style={gridStyle}>
@@ -123,7 +105,7 @@ const Skills: React.FC = () => {
         </div>
       </div>
     </section>
-  );
+  ); 
 };
 
 export default Skills;
@@ -138,6 +120,7 @@ const gridStyle: React.CSSProperties = {
   gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
   gap: "20px",
   marginTop: "48px",
+  alignItems: "stretch",   // ← add this
 };
 
 const cardStyle: React.CSSProperties = {
@@ -148,6 +131,7 @@ const cardStyle: React.CSSProperties = {
   backdropFilter: "blur(12px)",
   WebkitBackdropFilter: "blur(12px)",
   transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
+  height: "100%",    // ← add this
 };
 
 const categoryLabelStyle: React.CSSProperties = {
@@ -184,49 +168,18 @@ const skillNameStyle: React.CSSProperties = {
   fontWeight: 400,
 };
 
-/* Stats bar */
-const statsBarStyle: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  background: "var(--bg-glass)",
-  border: "1px solid var(--border)",
-  borderRadius: "var(--radius-lg)",
-  padding: "24px 32px",
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  flexWrap: "wrap",
-  gap: "16px",
-};
 
-const statItemStyle: React.CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  gap: "4px",
-  flex: 1,
-  minWidth: "100px",
-};
+// PASTE this at the very bottom of Skills.tsx, after all the const styles:
 
-const statNumberStyle: React.CSSProperties = {
-  fontFamily: "var(--font-display)",
-  fontWeight: 800,
-  fontSize: "2rem",
-  color: "var(--accent)",
-  letterSpacing: "-0.03em",
-  lineHeight: 1,
-};
-
-const statLabelStyle: React.CSSProperties = {
-  fontSize: "0.8rem",
-  color: "var(--text-secondary)",
-  textAlign: "center",
-  lineHeight: 1.4,
-};
-
-const statDividerStyle: React.CSSProperties = {
-  width: "1px",
-  height: "40px",
-  background: "var(--border)",
-  flexShrink: 0,
-};
+if (typeof document !== "undefined" && !document.getElementById("about-responsive")) {
+  const style = document.createElement("style");
+  style.id = "about-responsive";
+  style.textContent = `
+    @media (max-width: 768px) {
+      #skills [style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
