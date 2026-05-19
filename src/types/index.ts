@@ -9,6 +9,7 @@ export interface Project {
   description: string;
   techStack: string[];
   architectureNote: string;
+  previewGif?: string;
   keyChallenge: string;
   /** Set true to show the Live Demo button */
   liveCode?: boolean;

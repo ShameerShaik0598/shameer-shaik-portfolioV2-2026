@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
 
           {/* Stack subtitle */}
           <p style={subtitleStyle}>
-            React · Node.js · TypeScript · PostgreSQL · AWS
+            React · Node.js · TypeScript · PostgreSQL · Azure · AWS
           </p>
 
           {/* Typewriter */}
@@ -158,16 +158,25 @@ const Hero: React.FC = () => {
           {/* Social links */}
           <div style={socialsRowStyle}>
             {/* UPDATE: replace # with GitHub URL */}
-            <a href="#" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <a href="https://github.com/ShameerShaik0598" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
               <GithubIcon /> GitHub
             </a>
             {/* UPDATE: replace # with LinkedIn URL */}
-            <a href="#" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <a href="https://www.linkedin.com/in/shameersamuel/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
               <LinkedinIcon /> LinkedIn
             </a>
-            <a href="mailto:itsshameersamuel@gmail.com" style={socialLinkStyle}>
+            {/* <a href="mailto:itsshameersamuel@gmail.com" style={socialLinkStyle}>
               <EmailIcon /> Email
+            </a>  */}
+             <a href="mailto:itsshameersamuel@gmail.com" style={socialLinkStyle}>
+              <EmailIcon /> itsshameersamuel@gmail.com
             </a>
+            {/* <a 
+              href="tel:+11234567890"
+              style={socialLinkStyle}
+            >
+               +1 (123) 456-7890
+            </a> */}
             <a
               href="https://shameershaik-portfolio.netlify.app/"
               target="_blank"

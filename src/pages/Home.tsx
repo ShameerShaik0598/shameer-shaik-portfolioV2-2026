@@ -8,6 +8,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import About from "../components/About";
 import Education from "../components/Education";
+import FeaturedProject from "../components/FeaturedProject";
 
 /**
  * Home page — single-page layout.
@@ -155,6 +156,8 @@ const Home: React.FC = () => {
 
         {/* About — Proffesional Summary */}
         <About />
+
+        <FeaturedProject />
 
         {/* Projects — filter tabs + card grid */}
         <Projects />

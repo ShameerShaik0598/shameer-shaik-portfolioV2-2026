@@ -206,7 +206,7 @@ section {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: border-color var(--transition), transform var(--transition),
-    background var(--transition);
+  background var(--transition);
 }
 
 .glass-card:hover {

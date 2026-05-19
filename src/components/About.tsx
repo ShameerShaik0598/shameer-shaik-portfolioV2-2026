@@ -72,7 +72,7 @@ const About: React.FC = () => {
                 marginTop: "16px",
                 letterSpacing: "0.03em",
               }}>
-                Georgia, USA · Open to Relocation · H-1B Sponsorship Required
+                Georgia, USA · Open to Relocation
               </p>
             </div>
 
