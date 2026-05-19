@@ -57,6 +57,6 @@ export const skillGroups: SkillGroup[] = [
 export const stats = [
   { number: "3+", label: "Years Production Experience" },
   { number: "380+", label: "Students Taught" },
-  { number: "100+", label: "VoiceScribe Users" },
+  { number: "2+", label: "Years as Team Lead" },
   { number: "3", label: "Live Production Systems" },
 ];

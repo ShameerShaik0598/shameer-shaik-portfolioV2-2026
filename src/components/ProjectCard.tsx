@@ -21,6 +21,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
   const [expanded, setExpanded] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);  // ← add this
 
   const hasLinks = project.liveCode || project.github;
 
@@ -59,12 +60,53 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
         ))}
       </div>
 
-      {/* ── Demo preview placeholder ── */}
-      <div style={previewStyle}>
-        {/* UPDATE: replace this div with an <img> or <video> tag */}
-        {/* Example: <img src="/previews/project-pulse.gif" alt="Project Pulse demo" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'inherit'}} /> */}
-        <span style={previewLabelStyle}>[ Demo Preview ]</span>
-      </div>
+      {project.previewGif && (
+  <div>
+    {/* Toggle button */}
+    <button
+      style={previewToggleStyle}
+      onClick={() => setPreviewOpen((o) => !o)}
+      aria-expanded={previewOpen}
+    >
+      <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+        <PreviewIcon />
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-secondary)", letterSpacing: "0.04em" }}>
+          {previewOpen ? "Hide Preview" : "Show Preview"}
+        </span>
+      </span>
+      <svg
+        width="13" height="13" viewBox="0 0 24 24"
+        fill="none" stroke="var(--text-muted)" strokeWidth="2"
+        style={{ transform: previewOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease", flexShrink: 0 }}
+      >
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </button>
+
+    {/* Collapsible preview panel */}
+    <div style={{
+      maxHeight: previewOpen ? "600px" : "0px",
+      opacity: previewOpen ? 1 : 0,
+      overflow: "hidden",
+      transition: "max-height 0.4s ease, opacity 0.3s ease",
+      borderRadius: previewOpen ? "var(--radius)" : "0",
+      marginTop: previewOpen ? "10px" : "0px",
+    }}>
+      <img
+        src={project.previewGif}
+        alt={`${project.title} demo preview`}
+        style={{
+          width: "100%",
+          height: "auto",
+          display: "block",
+          borderRadius: "var(--radius)",
+          border: "1px solid var(--border)",
+        }}
+      />
+    </div>
+  </div>
+)}
+
 
       {/* ── Conditional action buttons ── */}
       {hasLinks && (
@@ -173,6 +215,14 @@ const GithubIcon = () => (
   </svg>
 );
 
+// ADD near the other SVG icon components:
+const PreviewIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+);
+
 /* ─── Hover helper (avoids inline onMouseEnter duplication) ─────────────── */
 const applyHoverBtn = (e: React.MouseEvent<HTMLAnchorElement>, on: boolean) => {
   const el = e.currentTarget;
@@ -215,7 +265,7 @@ const badgeStyle: React.CSSProperties = {
   fontFamily: "var(--font-mono)",
   fontSize: "0.6875rem",
   background: "var(--accent-dim)",
-  color: "var(--accent)",
+  color: "#f0eff8",
   border: "1px solid var(--accent-border)",
   borderRadius: "5px",
   padding: "3px 10px",
@@ -272,12 +322,8 @@ const previewStyle: React.CSSProperties = {
   background: "var(--bg-secondary)",
   border: "1px solid var(--border)",
   borderRadius: "var(--radius)",
-  height: "156px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
   overflow: "hidden",
-  marginTop: "auto",   // ← add this — pushes preview + buttons to bottom
+  marginTop: "auto",
 };
 
 const previewLabelStyle: React.CSSProperties = {
@@ -346,4 +392,19 @@ const detailTextStyle: React.CSSProperties = {
   fontSize: "0.875rem",
   color: "var(--text-secondary)",
   lineHeight: 1.75,
+};
+
+
+// ADD these after your existing style objects:
+const previewToggleStyle: React.CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  width: "100%",
+  background: "var(--bg-secondary)",
+  border: "1px solid var(--border)",
+  borderRadius: "var(--radius)",
+  padding: "9px 14px",
+  cursor: "pointer",
+  transition: "border-color 0.2s ease",
 };

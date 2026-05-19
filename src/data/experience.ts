@@ -42,7 +42,7 @@ export const education: EducationItem[] = [
   {
     degree: "M.S. Data Science and Analytics",
     school: "Kennesaw State University",
-    period: "Expected May 2026",
+    period: "May 2026",
     location: "Georgia, USA",
   },
   {

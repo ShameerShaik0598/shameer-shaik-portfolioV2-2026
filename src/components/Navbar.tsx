@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
   // Highlight the active section link while scrolling
-  const activeId = useScrollSpy(["about", "projects", "experience", "skills", "education", "contact"]);
+  const activeId = useScrollSpy(["about", "featured", "projects", "experience", "skills", "education", "contact"]);
 
   // Add backdrop once user scrolls past the hero
   useEffect(() => {
