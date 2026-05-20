@@ -21,15 +21,16 @@ export const projects: Project[] = [
       "Chose the Web Speech API over Google Cloud TTS or AWS Polly to eliminate infrastructure costs entirely. Tradeoff: voice quality varies by browser. Solved the consistency problem with voice detection and fallback logic at load time.",
     keyChallenge:
       "Real-time word highlighting required precise sync between SpeechSynthesisUtterance boundary events and DOM updates — built a custom event-driven state machine to handle it.",
-    liveCode: true,
+    liveCode: false,
     liveUrl: "https://shameershaik-portfolio.netlify.app/", // UPDATE: replace with VoiceScribe live URL
-    github: false,    // UPDATE: set true and add githubUrl once repo is public
+    github: true, 
+    githubUrl: "https://github.com/ShameerShaik0598/VoiceScribe",
     featured: true,
   },
 
   {
     id: 2,
-    title: "Project Pulse",
+    title: "SprintHub",
     badge: "Full-Stack",
     category: "engineering",
     impact: "Sub-100ms API · 85% test coverage · CI/CD on AWS EC2",
@@ -52,7 +53,7 @@ export const projects: Project[] = [
       "Getting CI/CD to handle environment variable injection cleanly across Docker and EC2 without hardcoding credentials — solved with GitHub Actions secrets and a runtime config loader.",
     liveCode: false,  // UPDATE: set true and add liveUrl once deployed
     github: true,    // UPDATE: set true and add githubUrl once repo is public
-    githubUrl: "https://github.com/ShameerShaik0598/PROJECT-PULSE",
+    githubUrl: "https://github.com/ShameerShaik0598/SprintHub",
     featured: true,
   },
 
@@ -84,7 +85,7 @@ export const projects: Project[] = [
   // },
   {
     id: 3,
-    title: "Child Welfare Analytics Platform",
+    title: "ChildWelfare Risk Prediction System",
     previewGif: "/previews/ChildWelfareproject.gif",
     badge: "ML + Analytics",
     category: "data",
@@ -104,7 +105,8 @@ export const projects: Project[] = [
     keyChallenge:
       "The stakeholders were social workers, not data scientists. The challenge wasn't the model — it was designing Power BI dashboards that surfaced model confidence scores as human-readable risk levels without losing accuracy context.",
     liveCode: false,
-    github: false,    // UPDATE: set true and add githubUrl
+    github: true,
+    githubUrl:"https://github.com/ShameerShaik0598/ChildWelfare-Risk-Prediction-System"
   },
   {
     id: 4,
@@ -129,9 +131,9 @@ export const projects: Project[] = [
       "Non-English respondents showed disproportionately low trust scores. Surfacing that finding required segmented analysis outside the original scope — pushed for it anyway because it changed the executive recommendation.",
     
     liveCode: true,
-    liveUrl: "https://csa-surveyanalysis-portfolio.netlify.app/", // UPDATE: replace with VoiceScribe live URL
+    liveUrl: "https://community-survey-analytics.netlify.app/",
     github: true, 
-    githubUrl: "https://github.com/ShameerShaik0598/Survey_Analysis_for_Portfolio"
+    githubUrl: "https://github.com/ShameerShaik0598/DWR-Community-Survey-Analytics"
     
   },
 ];

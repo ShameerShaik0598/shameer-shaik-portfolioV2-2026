@@ -9,6 +9,7 @@ interface ContactLink {
   icon: React.ReactNode;
   primary?: boolean;
   external?: boolean;
+  value?: string;
 }
 
 /* ─── Resume download definition ────────────────────────────────────────── */
@@ -129,15 +130,13 @@ const Contact: React.FC = () => {
     },
     {
       label: "LinkedIn",
-      // UPDATE: replace # with LinkedIn profile URL
-      href: "#",
+      href: "https://www.linkedin.com/in/shameersamuel/",
       icon: <LinkedinIcon />,
       external: true,
     },
     {
       label: "GitHub",
-      // UPDATE: replace # with GitHub profile URL
-      href: "#",
+      href: "https://github.com/ShameerShaik0598",
       icon: <GithubIcon />,
       external: true,
     },
