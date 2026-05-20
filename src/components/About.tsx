@@ -41,39 +41,41 @@ const About: React.FC = () => {
               }}>
                 About Me
               </h2>
-              <p style={{
-                fontSize: "0.9375rem",
-                color: "var(--text-secondary)",
-                lineHeight: 1.8,
-                marginBottom: "12px",
-                fontWeight: 300,
-              }}>
-                I'm a Full-Stack Engineer based in Georgia, finishing my MS in
-                Data Science at Kennesaw State University in May 2026. I've
-                spent the last three years building and shipping production
-                systems — React frontends, Node/TypeScript APIs, PostgreSQL
-                schemas, Docker deployments on AWS.
-              </p>
-              <p style={{
-                fontSize: "0.9375rem",
-                color: "var(--text-secondary)",
-                lineHeight: 1.8,
-                fontWeight: 300,
-              }}>
-                At Gwinnett County DWR, I built their entire analytics and
-                engineering function from the ground up. At KSU, I teach the
-                same stack to 380+ students every semester. I write code I'd
-                be comfortable defending in a system design interview.
-              </p>
-              <p style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.75rem",
-                color: "var(--text-muted)",
-                marginTop: "16px",
-                letterSpacing: "0.03em",
-              }}>
-                Georgia, USA · Open to Relocation
-              </p>
+
+            <p style={{
+              fontSize: "0.9375rem",
+              color: "var(--text-secondary)",
+              textAlign: "justify",
+              lineHeight: 1.85,
+              fontWeight: 300,
+              marginBottom: "12px",
+            }}>
+              Full-Stack Engineer with 3+ years shipping production systems —
+              React, Node.js, TypeScript, PostgreSQL, AWS and Azure. Including 2 years
+              leading engineering decisions end-to-end.
+
+            </p>
+
+            <p style={{
+              fontSize: "0.9375rem",
+              color: "var(--text-secondary)",
+              textAlign: "justify",
+              lineHeight: 1.85,
+              fontWeight: 300,
+            }}>
+              Built Gwinnett County DWR's entire survey engineering stack from scratch.
+              M.S. Data Science, KSU, GA · Teaching 380+ students the same stack at KSU.
+            </p>
+
+            <p style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.72rem",
+              color: "var(--text-muted)",
+              marginTop: "14px",
+              letterSpacing: "0.04em",
+            }}>
+              Georgia, USA · Open to Relocation
+            </p>
             </div>
 
             {/* Stats grid */}

@@ -42,22 +42,22 @@ const PROJECT = {
   // showLive: false,
   // liveUrl: "#",
   // UPDATE: flip to true and add URL when ready
-  // showGithub: false,
-  // githubUrl: "#",
+  showGithub: true,
+  githubUrl: "#",
   // UPDATE: replace with actual screenshot path e.g. "/screenshots/legal-flow-tracker.png"
 
     // UPDATE: flip to true and add URL when ready
   showLive: true,
   liveUrl: "https://legalflow-tracker.netlify.app/login",
 
-  showGithub: true,
-  githubUrl: "https://github.com/ShameerShaik0598/LegalFlow-Tracker",
+  // showGithub: true,
+  // githubUrl: "https://github.com/ShameerShaik0598/LegalFlow-Tracker",
   // UPDATE: replace with actual screenshot path e.g. "/screenshots/legal-flow-tracker.png"
   screenshotSrc: "/previews/LegalFlow-Tracker.gif",
 };
 
 /* ─── Role badge list ───────────────────────────────────────────────────── */
-const ROLES = ["Client", "Lawyer", "Paralegal", "Admin"];
+const ROLES = ["Admin", "Attorney", "Paralegal", "Viewer"];
 
 /* ─── Main Component ────────────────────────────────────────────────────── */
 const FeaturedProject: React.FC = () => {
@@ -113,7 +113,7 @@ const FeaturedProject: React.FC = () => {
                   </a>
                 )}
 
-                {PROJECT.showGithub && (
+                {/* {PROJECT.showGithub && (
                   <a
                     href={PROJECT.githubUrl}
                     target="_blank"
@@ -131,6 +131,17 @@ const FeaturedProject: React.FC = () => {
                     <GithubIcon />
                     GitHub
                   </a>
+                )} */}
+
+                {PROJECT.showGithub && (
+                  <div style={privateRepoStyle}>
+                    <GithubIcon />
+                    <div>
+                      <p style={privateRepoTitleStyle}>GitHub</p>
+                      {/* <p style={{...privateRepoTitleStyle, textAlign: "center"}}>GitHub</p> */}
+                      <p style={privateRepoSubStyle}>Private Repo 🔒︎</p>
+                    </div>
+                  </div>
                 )}
 
                 {/* Show placeholder buttons when not yet deployed */}
@@ -206,7 +217,7 @@ const FeaturedProject: React.FC = () => {
     </div>
 
     {/* Description */}
-    <p style={descStyle}>{PROJECT.description}</p>
+    <p style={{...descStyle, textAlign: "justify"}}>{PROJECT.description}</p>
 
     {/* Expand: architecture + challenge */}
     <button
@@ -234,11 +245,11 @@ const FeaturedProject: React.FC = () => {
     }}>
       <div style={detailBlockStyle}>
         <p style={detailLabelStyle}>Architecture Decision</p>
-        <p style={detailTextStyle}>{PROJECT.architectureNote}</p>
+        <p style={{...detailTextStyle, textAlign: "justify"}}>{PROJECT.architectureNote}</p>
       </div>
       <div style={{ ...detailBlockStyle, marginBottom: 0 }}>
         <p style={detailLabelStyle}>Key Challenge</p>
-        <p style={detailTextStyle}>{PROJECT.keyChallenge}</p>
+        <p style={{...detailTextStyle, textAlign: "justify"}}>{PROJECT.keyChallenge}</p>
       </div>
     </div>
 
@@ -622,6 +633,34 @@ const rightColStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   gap: "20px",
+};
+
+const privateRepoStyle: React.CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  border: "1px solid var(--border-strong)",
+  borderRadius: "var(--radius)",
+  padding: "8px 16px",
+  color: "var(--text-muted)",
+  cursor: "default",
+};
+
+const privateRepoTitleStyle: React.CSSProperties = {
+  fontFamily: "var(--font-body)",
+  fontSize: "0.875rem",
+  fontWeight: 500,
+  color: "var(--text-secondary)",
+  lineHeight: 1,
+  marginBottom: "3px",
+};
+
+const privateRepoSubStyle: React.CSSProperties = {
+  fontFamily: "var(--font-mono)",
+  fontSize: "0.6875rem",
+  color: "var(--text-muted)",
+  letterSpacing: "0.04em",
+  lineHeight: 1,
 };
 
 /* Responsive */

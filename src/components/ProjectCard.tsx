@@ -3,204 +3,196 @@ import type { Project } from "../types";
 
 interface ProjectCardProps {
   project: Project;
-  /** Staggered animation delay in ms */
   delay?: number;
 }
 
-/**
- * Reusable ProjectCard component.
- *
- * Conditional rendering logic:
- *   - "Live Demo" button renders ONLY if project.liveCode === true
- *   - "GitHub"    button renders ONLY if project.github   === true
- *   - If neither is true, the links row is hidden entirely
- *   - If only one is true, only that button shows — layout never breaks
- *
- * Expand/collapse reveals: full description, architecture note, key challenge.
- */
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
   const [expanded, setExpanded] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [previewOpen, setPreviewOpen] = useState(false);  // ← add this
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   const hasLinks = project.liveCode || project.github;
 
   return (
-    <div
-      style={{
-        ...cardStyle,
-        borderColor: hovered ? "var(--accent-border)" : "var(--border)",
-        background: hovered ? "var(--bg-card-hover)" : "var(--bg-glass-projects)",
-        transform: hovered ? "translateY(-3px)" : "translateY(0)",
-        opacity: 1,
-        transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
-        animationDelay: `${delay}ms`,
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* ── Header row: title + badge ── */}
-      <div style={headerRowStyle}>
-        <h3 style={titleStyle}>{project.title}</h3>
-        <span style={badgeStyle}>{project.badge}</span>
-      </div>
+    <div style={{ position: "relative", height: "100%" }}>
 
-      {/* ── Impact metric ── */}
-      <div style={impactStyle}>
-        <span style={impactBarStyle} />
-        <span style={impactTextStyle}>{project.impact}</span>
-      </div>
-
-      {/* ── Tech stack chips ── */}
-      <div style={chipsRowStyle}>
-        {project.techStack.map((tech) => (
-          <span key={tech} style={chipStyle}>
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      {project.previewGif && (
-  <div>
-    {/* Toggle button */}
-    <button
-      style={previewToggleStyle}
-      onClick={() => setPreviewOpen((o) => !o)}
-      aria-expanded={previewOpen}
-    >
-      <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-        <PreviewIcon />
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-secondary)", letterSpacing: "0.04em" }}>
-          {previewOpen ? "Hide Preview" : "Show Preview"}
-        </span>
-      </span>
-      <svg
-        width="13" height="13" viewBox="0 0 24 24"
-        fill="none" stroke="var(--text-muted)" strokeWidth="2"
-        style={{ transform: previewOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease", flexShrink: 0 }}
-      >
-        <polyline points="6 9 12 15 18 9" />
-      </svg>
-    </button>
-
-    {/* Collapsible preview panel */}
-    <div style={{
-      maxHeight: previewOpen ? "600px" : "0px",
-      opacity: previewOpen ? 1 : 0,
-      overflow: "hidden",
-      transition: "max-height 0.4s ease, opacity 0.3s ease",
-      borderRadius: previewOpen ? "var(--radius)" : "0",
-      marginTop: previewOpen ? "10px" : "0px",
-    }}>
-      <img
-        src={project.previewGif}
-        alt={`${project.title} demo preview`}
+      {/* ── Card ── */}
+      <div
         style={{
-          width: "100%",
-          height: "auto",
-          display: "block",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
+          ...cardStyle,
+          borderColor: hovered ? "var(--accent-border)" : "var(--border)",
+          background: hovered ? "var(--bg-card-hover)" : "var(--bg-glass)",
+          transform: hovered ? "translateY(-3px)" : "translateY(0)",
+          transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
+          animationDelay: `${delay}ms`,
         }}
-      />
-    </div>
-  </div>
-)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* ── Header row: title + badge ── */}
+        <div style={headerRowStyle}>
+          <h3 style={titleStyle}>{project.title}</h3>
+          <span style={badgeStyle}>{project.badge}</span>
+        </div>
 
+        {/* ── Impact metric ── */}
+        <div style={impactStyle}>
+          <span style={impactBarStyle} />
+          <span style={impactTextStyle}>{project.impact}</span>
+        </div>
 
-      {/* ── Conditional action buttons ── */}
-      {hasLinks && (
-        <div style={linksRowStyle}>
-          {/* Live Demo — only shown if liveCode === true */}
-          {project.liveCode && (
-            <a
-              href={project.liveUrl ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkBtnStyle}
-              onMouseEnter={(e) => applyHoverBtn(e, true)}
-              onMouseLeave={(e) => applyHoverBtn(e, false)}
+        {/* ── Tech stack chips ── */}
+        <div style={chipsRowStyle}>
+          {project.techStack.map((tech) => (
+            <span key={tech} style={chipStyle}>{tech}</span>
+          ))}
+        </div>
+
+        {/* ── Show Preview toggle — only if GIF exists ── */}
+        {project.previewGif && (
+          <div>
+            <button
+              style={previewToggleStyle}
+              onClick={() => setPreviewOpen((o) => !o)}
+              aria-expanded={previewOpen}
             >
-              <ExternalLinkIcon />
-              Live Demo
-            </a>
-          )}
+              <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                <PreviewIcon />
+                <span style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.75rem",
+                  color: "var(--text-secondary)",
+                  letterSpacing: "0.04em",
+                }}>
+                  {previewOpen ? "Hide Preview" : "Show Preview"}
+                </span>
+              </span>
+              <svg
+                width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="var(--text-muted)" strokeWidth="2"
+                style={{
+                  transform: previewOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.3s ease",
+                  flexShrink: 0,
+                }}
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
 
-          {/* GitHub — only shown if github === true */}
-          {project.github && (
-            <a
-              href={project.githubUrl ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkBtnStyle}
-              onMouseEnter={(e) => applyHoverBtn(e, true)}
-              onMouseLeave={(e) => applyHoverBtn(e, false)}
-            >
-              <GithubIcon />
-              View Code
-            </a>
-          )}
+            {/* Collapsible preview image */}
+            <div style={{
+              maxHeight: previewOpen ? "600px" : "0px",
+              opacity: previewOpen ? 1 : 0,
+              overflow: "hidden",
+              transition: "max-height 0.4s ease, opacity 0.3s ease",
+              marginTop: previewOpen ? "10px" : "0px",
+            }}>
+              <img
+                src={project.previewGif}
+                alt={`${project.title} demo preview`}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                  borderRadius: "var(--radius)",
+                  border: "1px solid var(--border)",
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* ── Conditional action buttons ── */}
+        {hasLinks && (
+          <div style={linksRowStyle}>
+            {/* Live Demo — only shown if liveCode === true */}
+            {project.liveCode && (
+              <a
+                href={project.liveUrl ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={linkBtnStyle}
+                onMouseEnter={(e) => applyHoverBtn(e, true)}
+                onMouseLeave={(e) => applyHoverBtn(e, false)}
+              >
+                <ExternalLinkIcon />
+                Live Demo
+              </a>
+            )}
+
+            {/* GitHub — only shown if github === true */}
+            {project.github && (
+              <a
+                href={project.githubUrl ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={linkBtnStyle}
+                onMouseEnter={(e) => applyHoverBtn(e, true)}
+                onMouseLeave={(e) => applyHoverBtn(e, false)}
+              >
+                <GithubIcon />
+                View Code
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* ── Show details toggle ── */}
+        <button
+          style={expandToggleStyle}
+          onClick={() => setExpanded((e) => !e)}
+          aria-expanded={expanded}
+          aria-label={expanded ? "Collapse details" : "Show details"}
+        >
+          <span style={{
+            color: "var(--accent)",
+            fontSize: "0.8rem",
+            fontFamily: "var(--font-mono)",
+            letterSpacing: "0.04em",
+          }}>
+            {expanded ? "Hide details" : "Show details"}
+          </span>
+          <svg
+            width="14" height="14" viewBox="0 0 24 24"
+            fill="none" stroke="var(--accent)" strokeWidth="2"
+            style={{
+              transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.3s ease",
+              flexShrink: 0,
+            }}
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+
+      </div>{/* ── End card ── */}
+
+      {/* ── Details panel — outside the card, pops below it ── */}
+      {expanded && (
+        <div style={floatingDetailsStyle}>
+          <div style={detailBlockStyle}>
+            <p style={detailLabelStyle}>Overview</p>
+            <p style={detailTextStyle}>{project.description}</p>
+          </div>
+          <div style={detailBlockStyle}>
+            <p style={detailLabelStyle}>Architecture Decision</p>
+            <p style={detailTextStyle}>{project.architectureNote}</p>
+          </div>
+          <div style={{ ...detailBlockStyle, marginBottom: 0 }}>
+            <p style={detailLabelStyle}>Key Challenge</p>
+            <p style={detailTextStyle}>{project.keyChallenge}</p>
+          </div>
         </div>
       )}
 
-      {/* ── Expand / Collapse toggle ── */}
-      <button
-        style={expandToggleStyle}
-        onClick={() => setExpanded((e) => !e)}
-        aria-expanded={expanded}
-        aria-label={expanded ? "Collapse details" : "Show details"}
-      >
-        <span style={{ color: "var(--accent)", fontSize: "0.8rem", fontFamily: "var(--font-mono)", letterSpacing: "0.04em" }}>
-          {expanded ? "Hide details" : "Show details"}
-        </span>
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--accent)"
-          strokeWidth="2"
-          style={{
-            transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
-            transition: "transform 0.3s ease",
-            flexShrink: 0,
-          }}
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
-
-      {/* ── Expanded details panel ── */}
-      <div
-        style={{
-          ...detailsPanelStyle,
-          maxHeight: expanded ? "600px" : "0px",
-          opacity: expanded ? 1 : 0,
-          paddingTop: expanded ? "16px" : "0px",
-        }}
-      >
-        <div style={detailBlockStyle}>
-          <p style={detailLabelStyle}>Overview</p>
-          <p style={detailTextStyle}>{project.description}</p>
-        </div>
-
-        <div style={detailBlockStyle}>
-          <p style={detailLabelStyle}>Architecture Decision</p>
-          <p style={detailTextStyle}>{project.architectureNote}</p>
-        </div>
-
-        <div style={{ ...detailBlockStyle, marginBottom: 0 }}>
-          <p style={detailLabelStyle}>Key Challenge</p>
-          <p style={detailTextStyle}>{project.keyChallenge}</p>
-        </div>
-      </div>
     </div>
   );
 };
 
 export default ProjectCard;
 
-/* ─── Inline SVG icons ──────────────────────────────────────────────────── */
+/* ─── SVG Icons ─────────────────────────────────────────────────────────── */
 const ExternalLinkIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
@@ -215,7 +207,6 @@ const GithubIcon = () => (
   </svg>
 );
 
-// ADD near the other SVG icon components:
 const PreviewIcon = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2">
     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -223,7 +214,7 @@ const PreviewIcon = () => (
   </svg>
 );
 
-/* ─── Hover helper (avoids inline onMouseEnter duplication) ─────────────── */
+/* ─── Hover helper ───────────────────────────────────────────────────────── */
 const applyHoverBtn = (e: React.MouseEvent<HTMLAnchorElement>, on: boolean) => {
   const el = e.currentTarget;
   el.style.borderColor = on ? "var(--accent)" : "var(--border-strong)";
@@ -242,7 +233,8 @@ const cardStyle: React.CSSProperties = {
   flexDirection: "column",
   gap: "16px",
   cursor: "default",
-  height: "100%",   // ← add this
+  minHeight: "365px",
+  // height: "100%",       // ← ADD this line
 };
 
 const headerRowStyle: React.CSSProperties = {
@@ -265,7 +257,7 @@ const badgeStyle: React.CSSProperties = {
   fontFamily: "var(--font-mono)",
   fontSize: "0.6875rem",
   background: "var(--accent-dim)",
-  color: "#f0eff8",
+  color: "var(--accent)",
   border: "1px solid var(--accent-border)",
   borderRadius: "5px",
   padding: "3px 10px",
@@ -318,19 +310,17 @@ const chipStyle: React.CSSProperties = {
   whiteSpace: "nowrap",
 };
 
-const previewStyle: React.CSSProperties = {
+const previewToggleStyle: React.CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  width: "100%",
   background: "var(--bg-secondary)",
   border: "1px solid var(--border)",
   borderRadius: "var(--radius)",
-  overflow: "hidden",
-  marginTop: "auto",
-};
-
-const previewLabelStyle: React.CSSProperties = {
-  fontFamily: "var(--font-mono)",
-  fontSize: "0.75rem",
-  color: "var(--text-muted)",
-  letterSpacing: "0.1em",
+  padding: "9px 14px",
+  cursor: "pointer",
+  transition: "border-color 0.2s ease",
 };
 
 const linksRowStyle: React.CSSProperties = {
@@ -364,15 +354,19 @@ const expandToggleStyle: React.CSSProperties = {
   cursor: "pointer",
   padding: "4px 0",
   width: "fit-content",
+  marginTop: "auto",
 };
 
-const detailsPanelStyle: React.CSSProperties = {
-  borderTop: "1px solid var(--border)",
-  overflow: "hidden",
-  transition: "max-height 0.4s ease, opacity 0.35s ease, padding-top 0.3s ease",
+const floatingDetailsStyle: React.CSSProperties = {
+  background: "var(--bg-card)",
+  border: "1px solid var(--accent-border)",
+  borderRadius: "var(--radius-lg)",
+  padding: "20px 24px",
+  marginTop: "8px",
   display: "flex",
   flexDirection: "column",
   gap: "14px",
+  animation: "fadeSlideDown 0.3s ease",
 };
 
 const detailBlockStyle: React.CSSProperties = {
@@ -394,17 +388,15 @@ const detailTextStyle: React.CSSProperties = {
   lineHeight: 1.75,
 };
 
-
-// ADD these after your existing style objects:
-const previewToggleStyle: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  width: "100%",
-  background: "var(--bg-secondary)",
-  border: "1px solid var(--border)",
-  borderRadius: "var(--radius)",
-  padding: "9px 14px",
-  cursor: "pointer",
-  transition: "border-color 0.2s ease",
-};
+/* ─── Keyframe injection ─────────────────────────────────────────────────── */
+if (typeof document !== "undefined" && !document.getElementById("card-kf")) {
+  const style = document.createElement("style");
+  style.id = "card-kf";
+  style.textContent = `
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  `;
+  document.head.appendChild(style);
+}
