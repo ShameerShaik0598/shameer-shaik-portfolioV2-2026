@@ -21,15 +21,15 @@ interface ResumeLink {
 
 const RESUMES: ResumeLink[] = [
   {
-    label: "↓ SDE Resume",
+    label: "↓ Software Engineer Resume",
     // UPDATE: replace with hosted PDF URL
-    href: "Shameer_Shaik_SDE_Resume.pdf",
+    href: "/previews/Shameer_Shaik_Software_Engineer.pdf",  
     description: "Software Engineer / Full-Stack",
   },
   {
     label: "↓ Data Analyst Resume",
     // UPDATE: replace with hosted PDF URL
-    href: "Shameer_Shaik_DA_Resume.pdf",
+    href: "/previews/Shameer_Shaik_Data_Analyst.pdf",
     description: "Data Analyst / Data Scientist",
   },
 ];

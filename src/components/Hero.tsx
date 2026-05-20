@@ -11,14 +11,14 @@ const PHRASES = [
 /* ── Resume dropdown options ────────────────────────────────────────────── */
 const RESUME_OPTIONS = [
   {
-    label: "↓ SDE Resume",
+    label: "↓ Software Engineer",
     // UPDATE: replace with hosted PDF URL
-    href: "Shameer_Shaik_SDE_Resume.pdf",
+    href: "/previews/Shameer_Shaik_Software_Engineer.pdf",  
   },
   {
     label: "↓ Data Analyst Resume",
     // UPDATE: replace with hosted PDF URL
-    href: "Shameer_Shaik_DA_Resume.pdf",
+    href: "/previews/Shameer_Shaik_Data_Analyst.pdf",  
   },
 ];
 
