@@ -5,7 +5,7 @@ export const projects: Project[] = [
     {
     id: 1,
     title: "VoiceScribe",
-    previewGif: "/previews/VoiceSrcibe.gif",
+    previewGif: "/previews/VoiceScribe2.gif",
     badge: "TTS Tool",
     category: "engineering",
     impact: "100+ active users · 5 premium features · $0 infrastructure cost",
