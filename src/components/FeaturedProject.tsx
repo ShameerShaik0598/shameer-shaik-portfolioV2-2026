@@ -23,7 +23,7 @@ const PROJECT = {
     { number: "RBAC", label: "Row-Level Permissions" },
   ],
   description:
-    "Full-stack legal case management platform with role-based access control across 4 distinct user types — Client, Lawyer, Paralegal, and Admin. Each role gets a fully scoped dashboard, permission set, and workflow. Built with React frontend, Node.js/Express REST API, PostgreSQL schema with row-level role enforcement, JWT authentication, and deployed on AWS.",
+    "Full-stack legal case management platform with role-based access control across 4 distinct user types — Client, Attorney, Paralegal, and Admin. Each role gets a fully scoped dashboard, permission set, and workflow. Built with React frontend, Node.js/Express REST API, PostgreSQL schema with row-level role enforcement, JWT authentication, and deployed on AWS.",
   architectureNote:
     "Designed the permission model around database-level role enforcement rather than just frontend route guards — each API endpoint validates the JWT role claim independently so no role can access another's data even with a manipulated token.",
   keyChallenge:

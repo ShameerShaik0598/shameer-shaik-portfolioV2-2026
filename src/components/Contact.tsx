@@ -26,12 +26,12 @@ const RESUMES: ResumeLink[] = [
     href: "/previews/Shameer_Shaik_Software_Engineer.pdf",  
     description: "Software Engineer / Full-Stack",
   },
-  {
-    label: "↓ Data Analyst Resume",
-    // UPDATE: replace with hosted PDF URL
-    href: "/previews/Shameer_Shaik_Data_Analyst.pdf",
-    description: "Data Analyst / Data Scientist",
-  },
+  // {
+  //   label: "↓ Data Analyst Resume",
+  //   // UPDATE: replace with hosted PDF URL
+  //   href: "/previews/Shameer_Shaik_Data_Analyst.pdf",
+  //   description: "Data Analyst / Data Scientist",
+  // },
 ];
 
 /* ─── Hoverable contact button ──────────────────────────────────────────── */
@@ -123,8 +123,8 @@ const ResumeCard: React.FC<ResumeLink> = ({ label, href, description }) => {
 const Contact: React.FC = () => {
   const contactLinks: ContactLink[] = [
     {
-      label: "Email Me",
-      href: "mailto:itsshameersamuel@gmail.com",
+      label: "shameer.s.dev@gmail.com",
+      href: "mailto:shameer.s.dev@gmail.comil.com",
       icon: <EmailIcon />,
       primary: true,
     },
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
           <div style={availabilityStyle}>
             <span style={availDotStyle} />
             <span style={availTextStyle}>
-              Available for new opportunities · May 2026
+              Available for new opportunities
             </span>
           </div>
         </FadeIn>
@@ -196,7 +196,7 @@ const Contact: React.FC = () => {
         <FadeIn delay={260}>
           <div style={emailDisplayStyle}>
             <a
-              href="mailto:itsshameersamuel@gmail.com"
+              href="mailto:shameer.s.dev@gmail.comil.com"
               style={emailLinkStyle}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
                 (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)";
               }}
             >
-              itsshameersamuel@gmail.com
+              shameer.s.dev@gmail.comil.com
             </a>
           </div>
         </FadeIn>

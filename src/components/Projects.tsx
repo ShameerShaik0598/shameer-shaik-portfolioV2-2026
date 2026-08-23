@@ -11,7 +11,7 @@ type FilterKey = "all" | "engineering" | "data";
 const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "all", label: "All" },
   { key: "engineering", label: "Engineering" },
-  { key: "data", label: "Data & Analytics" },
+  // { key: "data", label: "Data & Analytics" },
 ];
 
 /**

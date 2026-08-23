@@ -2,8 +2,37 @@ import type { Project } from "../types";
 
 export const projects: Project[] = [
 
-    {
+  {
     id: 1,
+    title: "SprintHub",
+    badge: "Full-Stack",
+    category: "engineering",
+    impact: "Sub-100ms API · 85% test coverage",
+    description:
+      "Full-stack project management tool built to production standards. JWT authentication with role-based access control, normalized PostgreSQL schema, REST API with 85% test coverage via Jest and Supertest, Dockerized and deployed through a GitHub Actions CI/CD pipeline to AWS EC2.",
+    techStack: [
+      "React.js",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker",
+      "AWS EC2",
+      "GitHub Actions",
+      "Jest",
+      "Supertest",
+    ],
+    architectureNote:
+      "Chose PostgreSQL over MongoDB for relational integrity across the projects/tasks/users data model. Added connection pooling to handle concurrent requests without spinning up new DB connections on every call.",
+    keyChallenge:
+      "Getting CI/CD to handle environment variable injection cleanly across Docker and EC2 without hardcoding credentials — solved with GitHub Actions secrets and a runtime config loader.",
+    liveCode: false,  // UPDATE: set true and add liveUrl once deployed
+    github: true,    // UPDATE: set true and add githubUrl once repo is public
+    githubUrl: "https://github.com/ShameerShaik0598/SprintHub",
+    featured: true,
+  },
+
+    {
+    id: 2,
     title: "VoiceScribe",
     previewGif: "/previews/VoiceScribe2.gif",
     badge: "TTS Tool",
@@ -25,35 +54,6 @@ export const projects: Project[] = [
     liveUrl: "https://shameershaik-portfolio.netlify.app/", // UPDATE: replace with VoiceScribe live URL
     github: true, 
     githubUrl: "https://github.com/ShameerShaik0598/VoiceScribe",
-    featured: true,
-  },
-
-  {
-    id: 2,
-    title: "SprintHub",
-    badge: "Full-Stack",
-    category: "engineering",
-    impact: "Sub-100ms API · 85% test coverage · CI/CD on AWS EC2",
-    description:
-      "Full-stack project management tool built to production standards. JWT authentication with role-based access control, normalized PostgreSQL schema, REST API with 85% test coverage via Jest and Supertest, Dockerized and deployed through a GitHub Actions CI/CD pipeline to AWS EC2.",
-    techStack: [
-      "React.js",
-      "Node.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Docker",
-      "AWS EC2",
-      "GitHub Actions",
-      "Jest",
-      "Supertest",
-    ],
-    architectureNote:
-      "Chose PostgreSQL over MongoDB for relational integrity across the projects/tasks/users data model. Added connection pooling to handle concurrent requests without spinning up new DB connections on every call.",
-    keyChallenge:
-      "Getting CI/CD to handle environment variable injection cleanly across Docker and EC2 without hardcoding credentials — solved with GitHub Actions secrets and a runtime config loader.",
-    liveCode: false,  // UPDATE: set true and add liveUrl once deployed
-    github: true,    // UPDATE: set true and add githubUrl once repo is public
-    githubUrl: "https://github.com/ShameerShaik0598/SprintHub",
     featured: true,
   },
 
@@ -83,57 +83,57 @@ export const projects: Project[] = [
   //   github: false,    // UPDATE: set true and add githubUrl
   //   featured: true,
   // },
-  {
-    id: 3,
-    title: "ChildWelfare Risk Prediction System",
-    previewGif: "/previews/ChildWelfareproject.gif",
-    badge: "ML + Analytics",
-    category: "data",
-    impact: "89% classification accuracy · risk reports for social workers",
-    description:
-      "ML classification system identifying high-risk cases — housing instability, dropout likelihood — across child welfare records. Random Forest and XGBoost ensemble. Power BI dashboards translate model outputs into plain-language priority reports for non-technical social workers.",
-    techStack: [
-      "Python",
-      "Scikit-learn",
-      "XGBoost",
-      "Random Forest",
-      "Pandas",
-      "Power BI",
-    ],
-    architectureNote:
-      "Used XGBoost over a single Random Forest after Random Forest plateaued at 84% accuracy. XGBoost's gradient boosting handled class imbalance significantly better.",
-    keyChallenge:
-      "The stakeholders were social workers, not data scientists. The challenge wasn't the model — it was designing Power BI dashboards that surfaced model confidence scores as human-readable risk levels without losing accuracy context.",
-    liveCode: false,
-    github: true,
-    githubUrl:"https://github.com/ShameerShaik0598/ChildWelfare-Risk-Prediction-System"
-  },
-  {
-    id: 4,
-    title: "DWR Community Survey Analytics",
-    previewGif: "/previews/SurveyAnalysis.gif",
-    badge: "Analytics",
-    category: "data",
-    impact: "1,200+ responses · 4 campaign waves · informed county strategy",
-    description:
-      "End-to-end analytics program for Gwinnett County DWR's 'Your Water Your Say' community survey initiative. Multi-wave trend analysis, trust score modeling, non-English respondent equity analysis, and executive reporting. Built the entire analytics function from scratch.",
-    techStack: [
-      "Python",
-      "SQL",
-      "Power BI",
-      "Excel",
-      "Pandas",
-      "Statistical Analysis",
-    ],
-    architectureNote:
-      "Structured the analysis pipeline so each campaign wave could be processed independently and then merged — made multi-wave trend comparison clean and repeatable without reprocessing historical data.",
-    keyChallenge:
-      "Non-English respondents showed disproportionately low trust scores. Surfacing that finding required segmented analysis outside the original scope — pushed for it anyway because it changed the executive recommendation.",
+  // {
+  //   id: 3,
+  //   title: "ChildWelfare Risk Prediction System",
+  //   previewGif: "/previews/ChildWelfareproject.gif",
+  //   badge: "ML + Analytics",
+  //   category: "data",
+  //   impact: "89% classification accuracy · risk reports for social workers",
+  //   description:
+  //     "ML classification system identifying high-risk cases — housing instability, dropout likelihood — across child welfare records. Random Forest and XGBoost ensemble. Power BI dashboards translate model outputs into plain-language priority reports for non-technical social workers.",
+  //   techStack: [
+  //     "Python",
+  //     "Scikit-learn",
+  //     "XGBoost",
+  //     "Random Forest",
+  //     "Pandas",
+  //     "Power BI",
+  //   ],
+  //   architectureNote:
+  //     "Used XGBoost over a single Random Forest after Random Forest plateaued at 84% accuracy. XGBoost's gradient boosting handled class imbalance significantly better.",
+  //   keyChallenge:
+  //     "The stakeholders were social workers, not data scientists. The challenge wasn't the model — it was designing Power BI dashboards that surfaced model confidence scores as human-readable risk levels without losing accuracy context.",
+  //   liveCode: false,
+  //   github: true,
+  //   githubUrl:"https://github.com/ShameerShaik0598/ChildWelfare-Risk-Prediction-System"
+  // },
+  // {
+  //   id: 4,
+  //   title: "DWR Community Survey Analytics",
+  //   previewGif: "/previews/SurveyAnalysis.gif",
+  //   badge: "Analytics",
+  //   category: "data",
+  //   impact: "1,200+ responses · 4 campaign waves · informed county strategy",
+  //   description:
+  //     "End-to-end analytics program for Gwinnett County DWR's 'Your Water Your Say' community survey initiative. Multi-wave trend analysis, trust score modeling, non-English respondent equity analysis, and executive reporting. Built the entire analytics function from scratch.",
+  //   techStack: [
+  //     "Python",
+  //     "SQL",
+  //     "Power BI",
+  //     "Excel",
+  //     "Pandas",
+  //     "Statistical Analysis",
+  //   ],
+  //   architectureNote:
+  //     "Structured the analysis pipeline so each campaign wave could be processed independently and then merged — made multi-wave trend comparison clean and repeatable without reprocessing historical data.",
+  //   keyChallenge:
+  //     "Non-English respondents showed disproportionately low trust scores. Surfacing that finding required segmented analysis outside the original scope — pushed for it anyway because it changed the executive recommendation.",
     
-    liveCode: true,
-    liveUrl: "https://community-survey-analytics.netlify.app/",
-    github: true, 
-    githubUrl: "https://github.com/ShameerShaik0598/DWR-Community-Survey-Analytics"
+  //   liveCode: true,
+  //   liveUrl: "https://community-survey-analytics.netlify.app/",
+  //   github: true, 
+  //   githubUrl: "https://github.com/ShameerShaik0598/DWR-Community-Survey-Analytics"
     
-  },
+  // },
 ];

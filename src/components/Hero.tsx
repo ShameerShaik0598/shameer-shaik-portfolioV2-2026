@@ -2,10 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 
 /* ── Typewriter phrases ─────────────────────────────────────────────────── */
 const PHRASES = [
-  "I build production-grade full-stack systems.",
-  "I ship clean, tested, deployed code.",
-  "I turn data into decisions.",
-  "I teach React and SQL to 380+ students.",
+  "I build full-stack software that solves real-world problems.",
+  "Currently building SaaS products & leading end-to-end technical projects.",
+  "From React frontends to Node.js APIs, databases, and cloud deployment.",
+  "Software Engineer • Technical Project Lead • M.S. Data Science.",
+  // "I build production-grade full-stack systems.",
+  // "I ship clean, tested, deployed code.",
+  // "I turn data into decisions.",
+  // "I teach React and SQL to 380+ students.",
 ];
 
 /* ── Resume dropdown options ────────────────────────────────────────────── */
@@ -15,11 +19,11 @@ const RESUME_OPTIONS = [
     // UPDATE: replace with hosted PDF URL
     href: "/previews/Shameer_Shaik_Software_Engineer.pdf",  
   },
-  {
-    label: "↓ Data Analyst Resume",
-    // UPDATE: replace with hosted PDF URL
-    href: "/previews/Shameer_Shaik_Data_Analyst.pdf",  
-  },
+  // {
+  //   label: "↓ Data Analyst Resume",
+  //   // UPDATE: replace with hosted PDF URL
+  //   href: "/previews/Shameer_Shaik_Data_Analyst.pdf",  
+  // },
 ];
 
 const Hero: React.FC = () => {
@@ -91,7 +95,7 @@ const Hero: React.FC = () => {
 
           {/* Stack subtitle */}
           <p style={subtitleStyle}>
-            React · Node.js · TypeScript · PostgreSQL · Azure · AWS
+            React · Node.js · TypeScript · PostgreSQL · Docker · AWS
           </p>
 
           {/* Typewriter */}
@@ -157,19 +161,18 @@ const Hero: React.FC = () => {
 
           {/* Social links */}
           <div style={socialsRowStyle}>
-            {/* UPDATE: replace # with GitHub URL */}
-            <a href="https://github.com/ShameerShaik0598" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
-              <GithubIcon /> GitHub
+            {/* <a href="mailto:shameer.s.dev@gmail.comil.com" style={socialLinkStyle}>
+              <EmailIcon /> Email
+            </a>  */}
+             <a href="mailto:shameer.s.dev@gmail.comil.com" style={socialLinkStyle}>
+              <EmailIcon /> shameer.s.dev@gmail.comil.com
             </a>
             {/* UPDATE: replace # with LinkedIn URL */}
             <a href="https://www.linkedin.com/in/shameersamuel/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
               <LinkedinIcon /> LinkedIn
             </a>
-            {/* <a href="mailto:itsshameersamuel@gmail.com" style={socialLinkStyle}>
-              <EmailIcon /> Email
-            </a>  */}
-             <a href="mailto:itsshameersamuel@gmail.com" style={socialLinkStyle}>
-              <EmailIcon /> itsshameersamuel@gmail.com
+             <a href="https://github.com/ShameerShaik0598" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+              <GithubIcon /> GitHub
             </a>
             {/* <a 
               href="tel:+11234567890"
@@ -177,14 +180,14 @@ const Hero: React.FC = () => {
             >
                +1 (123) 456-7890
             </a> */}
-            <a
+            {/* <a
               href="https://shameershaik-portfolio.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
               style={socialLinkStyle}
             >
               <GlobeIcon /> Portfolio
-            </a>
+            </a> */}
           </div>
         </div>
 

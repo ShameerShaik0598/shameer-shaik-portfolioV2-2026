@@ -55,8 +55,8 @@ export const skillGroups: SkillGroup[] = [
 
 // ─── Stats shown in the About section ────────────────────────────────────────
 export const stats = [
-  { number: "3+", label: "Years Production Experience" },
-  { number: "380+", label: "Students Taught" },
-  { number: "2+", label: "Years as Team Lead" },
-  { number: "3", label: "Live Production Systems" },
+  { number: "4", label: "Years Building Production Software" },
+  { number: "3", label: "Production Applications Delivered" },
+  { number: "30%", label: "MySQL Query Performance Improvement" },
+  { number: "85%", label: "SprintHub API Test Coverage" },
 ];

@@ -88,20 +88,8 @@ const Footer: React.FC = () => {
           <p style={copyrightStyle}>
             © {new Date().getFullYear()} Shameer Shaik · Georgia, USA
           </p>
-
-          <p style={stackNoteStyle}>
-            Built with{" "}
-            <span style={stackChipStyle}>React</span>
-            {" + "}
-            <span style={stackChipStyle}>TypeScript</span>
-            {" + "}
-            <span style={stackChipStyle}>Vite</span>
-            {" · Deployed on "}
-            <span style={stackChipStyle}>Netlify</span>
-          </p>
-
           <a
-            href="mailto:itsshameersamuel@gmail.com"
+            href="mailto:shameer.s.dev@gmail.comil.com"
             style={emailFooterStyle}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
@@ -110,8 +98,20 @@ const Footer: React.FC = () => {
               (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)";
             }}
           >
-            itsshameersamuel@gmail.com
+            shameer.s.dev@gmail.comil.com
           </a>
+          <p style={stackNoteStyle}>
+            Built with{" "}
+            <span style={stackChipStyle}>React</span>
+            {" + "}
+            <span style={stackChipStyle}>TypeScript</span>
+            {" + "}
+            <span style={stackChipStyle}>Vite</span>
+            {/* {" · Deployed on "} */}
+            {/* <span style={stackChipStyle}>Netlify</span> */}
+          </p>
+
+         
         </div>
       </div>
     </footer>

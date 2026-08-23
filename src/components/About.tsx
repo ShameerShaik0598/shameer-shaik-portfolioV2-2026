@@ -50,10 +50,12 @@ const About: React.FC = () => {
               fontWeight: 300,
               marginBottom: "12px",
             }}>
-              Full-Stack Engineer with 3+ years shipping production systems —
-              React, Node.js, TypeScript, PostgreSQL, AWS and Azure. Including 2 years
-              leading engineering decisions end-to-end.
+              {/* Full-Stack Engineer with 3+ years shipping production systems —
+              React, Node.js, TypeScript, PostgreSQL, AWS, Docker and Azure. Including 2 years
+              leading engineering decisions end-to-end. */}
+              Full-Stack Software Engineer with 4 years of hands-on experience building production applications, backend APIs, automation systems, and data-driven software using React, TypeScript, Node.js, PostgreSQL, AWS, Docker  and Azure.
 
+             
             </p>
 
             <p style={{
@@ -63,9 +65,20 @@ const About: React.FC = () => {
               lineHeight: 1.85,
               fontWeight: 300,
             }}>
-              Built Gwinnett County DWR's entire survey engineering stack from scratch.
-              M.S. Data Science, KSU, GA · Teaching 380+ students the same stack at KSU.
+               My experience spans commercial software engineering, technical project leadership, and building end-to-end systems for real-world organizations. At Gwinnett County DWR, I serve as the technical lead for a countywide survey project, owning system design, automation, analysis workflows, cross-team collaboration, and technical delivery | Master's in Computer Science.
+              {/* Built Gwinnett County DWR's entire survey engineering stack from scratch.
+              M.S. Data Science, KSU, GA · Teaching 380+ students the same stack at KSU. */}
             </p>
+
+             {/* <p style={{
+              fontSize: "0.9375rem",
+              color: "var(--text-secondary)",
+              textAlign: "justify",
+              lineHeight: 1.85,
+              fontWeight: 300,
+            }}>
+              Master's in Computer Science.
+            </p> */}
 
             <p style={{
               fontFamily: "var(--font-mono)",
