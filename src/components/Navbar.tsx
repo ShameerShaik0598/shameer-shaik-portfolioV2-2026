@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           {/* CTA + Hamburger */}
           <div style={actionsStyle}>
             <a
-              href="mailto:shameer.s.dev@gmail.comil.com"
+              href="mailto:shameer.s.dev@gmail.com"
               style={ctaStyle}
             >
               Hire Me
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
           </a>
         ))}
         <a
-          href="mailto:shameer.s.dev@gmail.comil.com"
+          href="mailto:shameer.s.dev@gmail.com"
           style={{
             ...mobileCTAStyle,
             opacity: menuOpen ? 1 : 0,
@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
             transition: `opacity 0.35s ease ${navLinks.length * 60}ms, transform 0.35s ease ${navLinks.length * 60}ms`,
           }}
         >
-          ✉ shameer.s.dev@gmail.comil.com
+          ✉ shameer.s.dev@gmail.com
         </a>
       </div>
     </>

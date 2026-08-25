@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Shameer Shaik · Georgia, USA
           </p>
           <a
-            href="mailto:shameer.s.dev@gmail.comil.com"
+            href="mailto:shameer.s.dev@gmail.com"
             style={emailFooterStyle}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)";
             }}
           >
-            shameer.s.dev@gmail.comil.com
+            shameer.s.dev@gmail.com
           </a>
           <p style={stackNoteStyle}>
             Built with{" "}

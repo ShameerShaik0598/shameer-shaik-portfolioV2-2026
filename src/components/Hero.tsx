@@ -161,11 +161,11 @@ const Hero: React.FC = () => {
 
           {/* Social links */}
           <div style={socialsRowStyle}>
-            {/* <a href="mailto:shameer.s.dev@gmail.comil.com" style={socialLinkStyle}>
+            {/* <a href="mailto:shameer.s.dev@gmail.com" style={socialLinkStyle}>
               <EmailIcon /> Email
             </a>  */}
-             <a href="mailto:shameer.s.dev@gmail.comil.com" style={socialLinkStyle}>
-              <EmailIcon /> shameer.s.dev@gmail.comil.com
+             <a href="mailto:shameer.s.dev@gmail.com" style={socialLinkStyle}>
+              <EmailIcon /> shameer.s.dev@gmail.com
             </a>
             {/* UPDATE: replace # with LinkedIn URL */}
             <a href="https://www.linkedin.com/in/shameersamuel/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>

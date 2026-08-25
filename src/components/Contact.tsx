@@ -124,7 +124,7 @@ const Contact: React.FC = () => {
   const contactLinks: ContactLink[] = [
     {
       label: "shameer.s.dev@gmail.com",
-      href: "mailto:shameer.s.dev@gmail.comil.com",
+      href: "mailto:shameer.s.dev@gmail.com",
       icon: <EmailIcon />,
       primary: true,
     },
@@ -196,7 +196,7 @@ const Contact: React.FC = () => {
         <FadeIn delay={260}>
           <div style={emailDisplayStyle}>
             <a
-              href="mailto:shameer.s.dev@gmail.comil.com"
+              href="mailto:shameer.s.dev@gmail.com"
               style={emailLinkStyle}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
                 (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)";
               }}
             >
-              shameer.s.dev@gmail.comil.com
+              shameer.s.dev@gmail.com
             </a>
           </div>
         </FadeIn>
